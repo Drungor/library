@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <script src="script.js" defer></script>
+    <title>Library</title>
+</head>
+<body>
+    <header>
+        <h1>library</h1>
+    </header>
+    <main>
+        <section id="book-shelves">
+            <h2 id="shelves-title">My books</h2>
+        </section>
+        <section id="button-space">
+            <button id="add-book-button">Add book</button>
+            <button id="delete-book-button">Delete book</button>
+        </section>
+        <section id="form">
+            <form action="">
+                <label for="title">Title</label>
+                <input type="text" id="title" placeholder="book's title">
+                <label for="author">Author</label>
+                <input type="text" id="author" placeholder="book's author">
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" placeholder="250">
+                <div id="radio">
+                    <p>Reading status</p>
+                    <label for="not-yet">not yet</label>
+                    <input type="radio" id="not-yet" name="reading" >
+                    <label for="on-going">on going</label>
+                    <input type="radio" id="on-going" name="reading">
+                    <label for="read">read</label>
+                    <input type="radio" id="read" name="reading">
+                </div>
+                <button type="submit">Add to the collection</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>footer</p>
+    </footer>
+</body>
+</html>
