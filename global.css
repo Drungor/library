@@ -27,3 +27,7 @@ header{
     width: 200px;
     height: 300px;
 }
+
+#form {
+    display: none;
+}

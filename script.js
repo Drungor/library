@@ -1,6 +1,9 @@
 const bookShelves = document.getElementById('book-shelves');
-const addBookButton = document.getElementById('add-book-button');
-const freeSpace = document.getElementById('free-space');
+const form = document.getElementById('form');
+
+const deleteBookButtonElement = document.getElementById('delete-book-button');
+const addBookButtonElement = document.getElementById('add-book-button');
+const submitButtonElement = document.getElementById('submit-button');
 
 const myBooks = [ 
     {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, read: "Yes"},
@@ -33,17 +36,25 @@ book();
 // il faut rajouter un event listener sur le bouton addBookButton puis quand il est clique faire apparaitre une div qui 
 // contient un from permettant de renseigner les informations a propos du livre a ajouter
 
-function addBook() {
-    
-}
+addBookButtonElement.textContent = 'Add a book';
 
-
-addEventListener('click', () => {
+addBookButtonElement.addEventListener('click', () => {
+    if (form.style.display === "none" || form.style.display === "") {
+        form.style.display = 'block';
+        addBookButtonElement.textContent = 'Hide the form';
+    } else {
+        form.style.display = 'none';
+        addBookButtonElement.textContent = 'Add a Book';
+    }
     console.log('click');
-    
 });
 
-
+submitButtonElement.addEventListener('click', (e) => {
+    
+    form.style.display = 'none';
+    console.log('you did clicked on submit button');
+});
+    
 
 //etape 2: comment supprimer un livre de l array via une fonction
 
