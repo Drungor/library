@@ -64,9 +64,18 @@ addBookButtonElement.addEventListener('click', () => {
 
 
 submitButtonElement.addEventListener('click', (e) => {
-    form.style.display = 'none';
-    addBookButtonElement.textContent = 'Add a Book';
-    console.log('you did clicked on submit button');
+    const AllfieldsValid = Array.from(formElement.elements).every((input) => {
+        return input.type !== 'submit' && input.checkValidity();
+    });
+    if (AllfieldsValid) {
+        formElement.style.display = 'none';
+        addBookButtonElement.textContent = 'Add a Book';
+        console.log('you did clicked on submit button');
+    }
+    else{ 
+        return submitButtonElement.disabled = true;
+    }
+        
 });
     
 
@@ -90,6 +99,7 @@ deleteButtonElement.addEventListener('click', (e) => {
     deleteFormElement.style.display = 'none';
     deleteBookButtonElement.textContent = 'Delete a Book';
     console.log('you did clicked on delete button');
+
 });
 
 //etape 3: comment changer le status de lecture d un livre via une fonction
