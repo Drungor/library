@@ -1,11 +1,23 @@
+//DOM Elements
 const bookShelves = document.getElementById('book-shelves');
 const formElement = document.getElementById('form');
 const deleteFormElement = document.getElementById('delete-form');
 
+//Add form elements
+const titleInputElement = document.getElementById('title-input');
+const authorInputElement = document.getElementById('author-input'); 
+const pagesInputElement = document.getElementById('pages-input');
+const notYetElement = document.getElementById('not-yet');
+const onGoingElement = document.getElementById('on-going');
+const readElement = document.getElementById('read');
+
+//Button Elements
 const deleteBookButtonElement = document.getElementById('delete-book-button');
 const addBookButtonElement = document.getElementById('add-book-button');
 const submitButtonElement = document.getElementById('submit-button');
 
+
+//data
 const myBooks = [ 
     {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, read: "Yes"},
     {id:2, title: "The Fellowship of the Ring", author: "J.R.R. Tolkien", pages: 398, read: "Yes"},
@@ -15,6 +27,7 @@ const myBooks = [
 
 console.log(myBooks);
 
+//dynamic rendering function
 function book () {
     myBooks.forEach((book) => {
         const div = document.createElement('div');
@@ -33,9 +46,7 @@ function book () {
 book();
 
 
-// etape 1: comment ajouter un livre a l array via une fonction
-// il faut rajouter un event listener sur le bouton addBookButton puis quand il est clique faire apparaitre une div qui 
-// contient un from permettant de renseigner les informations a propos du livre a ajouter
+//etape 1: comment ajouter un livre dans l array via une fonction
 
 addBookButtonElement.textContent = 'Add a book';
 
@@ -51,7 +62,6 @@ addBookButtonElement.addEventListener('click', () => {
 });
 
 submitButtonElement.addEventListener('click', (e) => {
-    
     form.style.display = 'none';
     console.log('you did clicked on submit button');
 });
