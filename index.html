@@ -23,15 +23,15 @@
             <div id="form">
                 <form class="form" action="" id="book-form">
                     <label for="title">Title</label>
-                    <input type="text" id="title-input" placeholder="book's title">
+                    <input type="text" id="title-input" placeholder="book's title" required>
                     <label for="author">Author</label>
-                    <input type="text" id="author-input" placeholder="book's author">
+                    <input type="text" id="author-input" placeholder="book's author" required>
                     <label for="pages">Number of Pages</label>
-                    <input type="number" id="pages-input" placeholder="250">
+                    <input type="number" id="pages-input" placeholder="250" required>
                     <div id="radio">
                         <p>Reading status</p>
                         <label for="not-yet">not yet</label>
-                        <input type="radio" id="not-yet" name="reading" >
+                        <input type="radio" id="not-yet" name="reading" required>
                         <label for="on-going">on going</label>
                         <input type="radio" id="on-going" name="reading">
                         <label for="read">read</label>
@@ -43,7 +43,7 @@
             <div id="delete-form">
                 <form class="form" id="delete">
                     <label for="delete-title">Title</label>
-                    <input type="text" id="delete-title" placeholder="book's title">
+                    <input type="text" id="delete-title" placeholder="book's title" required>
                     <button id="delete-button" type="submit">Delete</button>
                 </form>
             </div>

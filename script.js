@@ -12,9 +12,10 @@ const onGoingElement = document.getElementById('on-going');
 const readElement = document.getElementById('read');
 
 //Button Elements
-const deleteBookButtonElement = document.getElementById('delete-book-button');
 const addBookButtonElement = document.getElementById('add-book-button');
 const submitButtonElement = document.getElementById('submit-button');
+const deleteBookButtonElement = document.getElementById('delete-book-button');
+const deleteButtonElement = document.getElementById('delete-button');
 
 
 //data
@@ -46,7 +47,7 @@ function book () {
 book();
 
 
-//etape 1: comment ajouter un livre dans l array via une fonction
+//etape 1: add a book
 
 addBookButtonElement.textContent = 'Add a book';
 
@@ -61,15 +62,17 @@ addBookButtonElement.addEventListener('click', () => {
     console.log('click');
 });
 
+
 submitButtonElement.addEventListener('click', (e) => {
     form.style.display = 'none';
+    addBookButtonElement.textContent = 'Add a Book';
     console.log('you did clicked on submit button');
 });
     
 
-//etape 2: comment supprimer un livre de l array via une fonction
+//etape 2: delete book
 
-deleteFormElement
+deleteFormElement.style.display = 'none';
 deleteBookButtonElement.textContent = 'Delete a book';
 
 deleteBookButtonElement.addEventListener('click', () => {
@@ -81,6 +84,12 @@ deleteBookButtonElement.addEventListener('click', () => {
         deleteBookButtonElement.textContent = 'Delete a Book';
     }
     console.log('click');
+});
+
+deleteButtonElement.addEventListener('click', (e) => {
+    deleteFormElement.style.display = 'none';
+    deleteBookButtonElement.textContent = 'Delete a Book';
+    console.log('you did clicked on delete button');
 });
 
 //etape 3: comment changer le status de lecture d un livre via une fonction
