@@ -27,6 +27,19 @@ header{
     width: 200px;
     height: 300px;
 }
+#button-space {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
 
 #form {
     display: none;

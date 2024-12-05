@@ -19,25 +19,34 @@
             <button id="add-book-button"></button>
             <button id="delete-book-button"></button>
         </section>
-        <section id="form">
-            <form action="" id="book-form">
-                <label for="title">Title</label>
-                <input type="text" id="title" placeholder="book's title">
-                <label for="author">Author</label>
-                <input type="text" id="author" placeholder="book's author">
-                <label for="pages">Number of Pages</label>
-                <input type="number" id="pages" placeholder="250">
-                <div id="radio">
-                    <p>Reading status</p>
-                    <label for="not-yet">not yet</label>
-                    <input type="radio" id="not-yet" name="reading" >
-                    <label for="on-going">on going</label>
-                    <input type="radio" id="on-going" name="reading">
-                    <label for="read">read</label>
-                    <input type="radio" id="read" name="reading">
-                </div>
-                <button id="submit-button" type="submit">Add to the collection</button>
-            </form>
+        <section id="form-container">
+            <div id="form">
+                <form class="form" action="" id="book-form">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="book's title">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" placeholder="book's author">
+                    <label for="pages">Number of Pages</label>
+                    <input type="number" id="pages" placeholder="250">
+                    <div id="radio">
+                        <p>Reading status</p>
+                        <label for="not-yet">not yet</label>
+                        <input type="radio" id="not-yet" name="reading" >
+                        <label for="on-going">on going</label>
+                        <input type="radio" id="on-going" name="reading">
+                        <label for="read">read</label>
+                        <input type="radio" id="read" name="reading">
+                    </div>
+                    <button id="submit-button" type="submit">Add to the collection</button>
+                </form>
+            </div>
+            <div id="delete-form">
+                <form class="form" id="delete">
+                    <label for="delete-title">Title</label>
+                    <input type="text" id="delete-title" placeholder="book's title">
+                    <button id="delete-button" type="submit">Delete</button>
+                </form>
+            </div>
         </section>
     </main>
     <footer>
