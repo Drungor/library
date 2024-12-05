@@ -1,6 +1,6 @@
 //DOM Elements
 const bookShelves = document.getElementById('book-shelves');
-const formElement = document.getElementById('form');
+const AddformElement = document.getElementById('add-form');
 const deleteFormElement = document.getElementById('delete-form');
 
 //Add form elements
@@ -48,15 +48,15 @@ book();
 
 
 //etape 1: add a book
-
+AddformElement.style.display = 'none';
 addBookButtonElement.textContent = 'Add a book';
 
 addBookButtonElement.addEventListener('click', () => {
-    if (formElement.style.display === "none" || formElement.style.display === "") {
-        formElement.style.display = 'block';
+    if (AddformElement.style.display === "none" || AddformElement.style.display === "") {
+        AddformElement.style.display = 'block';
         addBookButtonElement.textContent = 'Hide the form';
     } else {
-        formElement.style.display = 'none';
+        AddformElement.style.display = 'none';
         addBookButtonElement.textContent = 'Add a Book';
     }
     console.log('click');
@@ -64,11 +64,11 @@ addBookButtonElement.addEventListener('click', () => {
 
 
 submitButtonElement.addEventListener('click', (e) => {
-    const AllfieldsValid = Array.from(formElement.elements).every((input) => {
+    const AllfieldsValid = Array.from(AddformElement.elements).every((input) => {
         return input.type !== 'submit' && input.checkValidity();
     });
     if (AllfieldsValid) {
-        formElement.style.display = 'none';
+        AddformElement.style.display = 'none';
         addBookButtonElement.textContent = 'Add a Book';
         console.log('you did clicked on submit button');
     }
