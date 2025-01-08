@@ -26,6 +26,7 @@ const myBooks = [
     {id:4, title: "The Return of the King", author: "J.R.R. Tolkien", pages: 347, reading: "No"}
 ];
 
+
 //dynamic rendering function
 function book () {
     bookShelves.innerHTML= "";
@@ -34,9 +35,12 @@ function book () {
         div.classList.add('book');
         div.innerHTML = `
             <h2>${book.title}</h2>
+            <div id="p-wrapper">
             <p>${book.author}</p>
             <p>${book.pages} pages</p>
             <p>${book.reading}</p>
+            </div>
+            <button id="delete-button"> Delete book </button>
         `;
         bookShelves.appendChild(div);
     
@@ -75,7 +79,6 @@ AddformElement.addEventListener('submit', (e) => {
         reading: form.reading.value
     }
 
-
     myBooks.push(formData);
 
     localStorage.setItem('bookId',bookId);
@@ -89,39 +92,9 @@ AddformElement.addEventListener('submit', (e) => {
 });
 
 
-    
+//etape 2: comment changer le status de lecture d un livre via une fonction
 
-//etape 2: delete book
-
-deleteFormElement.style.display = 'none';
-deleteBookButtonElement.textContent = 'Delete a book';
-
-deleteBookButtonElement.addEventListener('click', () => {
-    if (deleteFormElement.style.display === "none" || deleteFormElement.style.display === "") {
-        deleteFormElement.style.display = 'block';
-        deleteBookButtonElement.textContent = 'Hide the form';
-    } else {
-        deleteFormElement.style.display = 'none';
-        deleteBookButtonElement.textContent = 'Delete a Book';
-    }
-    console.log('click');
-});
-
-deleteButtonElement.addEventListener('click', (e) => {
-    e.preventDefault();
-    const AllfieldsValid = Array.from(deleteFormElement.elements).every((input) => {
-        return input.type !== 'submit' && input.checkValidity();
-    });
-    if (AllfieldsValid) {
-    deleteFormElement.style.display = 'none';
-    deleteBookButtonElement.textContent = 'Delete a Book';
-    console.log('you did clicked on delete button');
-    };
-});
-
-//etape 3: comment changer le status de lecture d un livre via une fonction
-
-//etape 4: comment afficher les livres dans la console via une fonction
+//etape 3: comment afficher les livres dans la console via une fonction
 
 
 
