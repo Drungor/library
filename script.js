@@ -4,9 +4,9 @@ const AddformElement = document.getElementById('add-form');
 const deleteFormElement = document.getElementById('delete-form');
 
 //Add form elements
-const titleInputElement = document.getElementById('title-input');
-const authorInputElement = document.getElementById('author-input'); 
-const pagesInputElement = document.getElementById('pages-input');
+const titleInputElement = document.getElementById('title');
+const authorInputElement = document.getElementById('author'); 
+const pagesInputElement = document.getElementById('pages');
 const notYetElement = document.getElementById('not-yet');
 const onGoingElement = document.getElementById('on-going');
 const readElement = document.getElementById('read');
@@ -20,10 +20,10 @@ const deleteButtonElement = document.getElementById('delete-button');
 
 //data
 const myBooks = [ 
-    {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, read: "Yes"},
-    {id:2, title: "The Fellowship of the Ring", author: "J.R.R. Tolkien", pages: 398, read: "Yes"},
-    {id:3, title: "The Two Towers", author: "J.R.R. Tolkien", pages: 327, read: "On going"},
-    {id:4, title: "The Return of the King", author: "J.R.R. Tolkien", pages: 347, read: "No"}
+    {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, reading: "Yes"},
+    {id:2, title: "The Fellowship of the Ring", author: "J.R.R. Tolkien", pages: 398, reading: "Yes"},
+    {id:3, title: "The Two Towers", author: "J.R.R. Tolkien", pages: 327, reading: "On going"},
+    {id:4, title: "The Return of the King", author: "J.R.R. Tolkien", pages: 347, reading: "No"}
 ];
 
 console.log(myBooks);
@@ -37,13 +37,12 @@ function book () {
             <h2>${book.title}</h2>
             <p>${book.author}</p>
             <p>${book.pages} pages</p>
-            <p>${book.read}</p>
+            <p>${book.reading}</p>
         `;
         bookShelves.appendChild(div);
     
     });
 }
-
 book();
 
 
@@ -62,17 +61,33 @@ addBookButtonElement.addEventListener('click', () => {
     console.log('click');
 });
 
-submitButtonElement.addEventListener('click', (e) => {
-    const AllfieldsValid = Array.from(AddformElement.elements).every((input) => {
-        return input.type !== 'submit' && input.checkValidity();
-    });
+AddformElement.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-    if (AllfieldsValid) {
-        AddformElement.style.display = 'none';
-        addBookButtonElement.textContent = 'Add a Book';
-        console.log('you can click on submit button');
-    }  
+    const form = e.target;
+
+    const formData = {
+        id: myBooks.length+1,
+        title: form.title.value,
+        author: form.author.value,
+        pages: form.pages.value,
+        reading: form.reading.value
+    }
+
+    if (!form.title.value || !form.author.value || !form.pages.value || !form.reading.value) {
+        alert ("Please fill out the form");
+        return;
+    }
+
+
+    myBooks.push(formData);
+    console.log(myBooks);
+    addBookButtonElement.textContent = 'Add a Book';
+    console.log(myBooks);
+ 
 });
+
+
     
 
 //etape 2: delete book
@@ -92,6 +107,7 @@ deleteBookButtonElement.addEventListener('click', () => {
 });
 
 deleteButtonElement.addEventListener('click', (e) => {
+    e.preventDefault();
     const AllfieldsValid = Array.from(deleteFormElement.elements).every((input) => {
         return input.type !== 'submit' && input.checkValidity();
     });
