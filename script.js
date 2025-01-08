@@ -82,6 +82,9 @@ AddformElement.addEventListener('submit', (e) => {
 
     form.reset();
     console.log(myBooks);
+    AddformElement.style.display="none"
+    addBookButtonElement.textContent= "Add a book"
+    
     book();
 });
 
