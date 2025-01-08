@@ -26,10 +26,9 @@ const myBooks = [
     {id:4, title: "The Return of the King", author: "J.R.R. Tolkien", pages: 347, reading: "No"}
 ];
 
-console.log(myBooks);
-
 //dynamic rendering function
 function book () {
+    bookShelves.innerHTML= "";
     myBooks.forEach((book) => {
         const div = document.createElement('div');
         div.classList.add('book');
@@ -47,6 +46,8 @@ book();
 
 
 //etape 1: add a book
+
+let bookId = Number(localStorage.getItem('bookId')) || 5;
 AddformElement.style.display = 'none';
 addBookButtonElement.textContent = 'Add a book';
 
@@ -74,17 +75,14 @@ AddformElement.addEventListener('submit', (e) => {
         reading: form.reading.value
     }
 
-    if (!form.title.value || !form.author.value || !form.pages.value || !form.reading.value) {
-        alert ("Please fill out the form");
-        return;
-    }
-
 
     myBooks.push(formData);
+
+    localStorage.setItem('bookId',bookId);
+
+    form.reset();
     console.log(myBooks);
-    addBookButtonElement.textContent = 'Add a Book';
-    console.log(myBooks);
- 
+    book();
 });
 
 
