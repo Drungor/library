@@ -14,8 +14,6 @@ const readElement = document.getElementById('read');
 //Button Elements
 const addBookButtonElement = document.getElementById('add-book-button');
 const submitButtonElement = document.getElementById('submit-button');
-const deleteBookButtonElement = document.getElementById('delete-book-button');
-const deleteButtonElement = document.getElementById('delete-button');
 
 
 //data
@@ -70,8 +68,7 @@ function renderBook () {
 renderBook();
 
 
-//etape 1: add a book
-
+ //add a book function
 let bookId = Number(localStorage.getItem('bookId')) || 5;
 AddformElement.style.display = 'none';
 addBookButtonElement.textContent = 'Add a book';
