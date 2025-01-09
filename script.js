@@ -45,8 +45,6 @@ function renderBook () {
 
         const readingStatusButton = document.createElement('button')
         readingStatusButton.classList.add("reading-button")
-        
-
         if (book.reading === 'Read') {
             readingStatusButton.style.display = "none";
         } else if (book.reading === 'On going' ) {
@@ -54,8 +52,6 @@ function renderBook () {
         } else {
             readingStatusButton.textContent= " Pass to on going"
         }
-
-
         bookDiv.appendChild(readingStatusButton)
 
         const deleteButton = document.createElement('button');
@@ -68,8 +64,6 @@ function renderBook () {
             myBooks.splice(bookIndex,1);
             renderBook();
         });
-
-
         bookDiv.appendChild(deleteButton);
     });
 }
