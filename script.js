@@ -30,7 +30,7 @@ const myBooks = [
 //dynamic rendering function
 function renderBook () {
     bookShelves.innerHTML= "";
-    myBooks.forEach((book,index) => {
+    myBooks.forEach((book,id) => {
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book');
         bookDiv.innerHTML = `
@@ -44,11 +44,12 @@ function renderBook () {
         bookShelves.appendChild(bookDiv);
 
         const deleteButton = document.createElement('button');
+        deleteButton.classList.add("delete-button")
         deleteButton.textContent= 'Remove';
-        deleteButton.setAttribute('data-index', index)
+        deleteButton.setAttribute('data-id', id)
 
         deleteButton.addEventListener('click', (e)=> {
-            const bookIndex = e.target.getAttribute('data-index');
+            const bookIndex = e.target.getAttribute('data-id');
             myBooks.splice(bookIndex,1);
             renderBook();
         })
