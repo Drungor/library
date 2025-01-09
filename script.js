@@ -20,8 +20,8 @@ const deleteButtonElement = document.getElementById('delete-button');
 
 //data
 const myBooks = [ 
-    {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, reading: "Yes"},
-    {id:2, title: "The Fellowship of the Ring", author: "J.R.R. Tolkien", pages: 398, reading: "Yes"},
+    {id:1,title: "The Hobbit", author: "J.R.R. Tolkien", pages: 295, reading: "Read"},
+    {id:2, title: "The Fellowship of the Ring", author: "J.R.R. Tolkien", pages: 398, reading: "Read"},
     {id:3, title: "The Two Towers", author: "J.R.R. Tolkien", pages: 327, reading: "On going"},
     {id:4, title: "The Return of the King", author: "J.R.R. Tolkien", pages: 347, reading: "No"}
 ];
@@ -36,15 +36,30 @@ function renderBook () {
         bookDiv.innerHTML = `
             <h2>${book.title}</h2>
             <div id="p-wrapper">
-            <p>${book.author}</p>
-            <p>${book.pages} pages</p>
-            <p>${book.reading}</p>
+            <p>Author: ${book.author}</p>
+            <p>Pages: ${book.pages} pages</p>
+            <p>Reading status: ${book.reading}</p>
             </div>
         `;
         bookShelves.appendChild(bookDiv);
 
+        const readingStatusButton = document.createElement('button')
+        readingStatusButton.classList.add("reading-button")
+        
+
+        if (book.reading === 'Read') {
+            readingStatusButton.style.display = "none";
+        } else if (book.reading === 'On going' ) {
+            readingStatusButton.textContent= "Pass to read"
+        } else {
+            readingStatusButton.textContent= " Pass to on going"
+        }
+
+
+        bookDiv.appendChild(readingStatusButton)
+
         const deleteButton = document.createElement('button');
-        deleteButton.classList.add("delete-button")
+        deleteButton.classList.add("delete-button");
         deleteButton.textContent= 'Remove';
         deleteButton.setAttribute('data-id', id)
 
@@ -52,9 +67,10 @@ function renderBook () {
             const bookIndex = e.target.getAttribute('data-id');
             myBooks.splice(bookIndex,1);
             renderBook();
-        })
+        });
 
-        bookDiv.appendChild(deleteButton)
+
+        bookDiv.appendChild(deleteButton);
     });
 }
 renderBook();

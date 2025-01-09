@@ -64,14 +64,22 @@ header{
     color: rgb(56, 56, 56);
 }
 
+.reading-button {
+    background-color: seagreen;
+}
+
+.reading-button:hover {
+    background-color: mediumseagreen;
+}
+
 .delete-button {
     background-color: rgb(238, 92, 92);
     padding: 1rem, 0.5rem;
     margin-top: auto;
 }
 
-.delete-button:hover:hover {
-    background-color: darkred;
+.delete-button:hover {
+    background-color: orangered;
 }
 
 #button-space {
