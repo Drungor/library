@@ -28,25 +28,35 @@ const myBooks = [
 
 
 //dynamic rendering function
-function book () {
+function renderBook () {
     bookShelves.innerHTML= "";
-    myBooks.forEach((book) => {
-        const div = document.createElement('div');
-        div.classList.add('book');
-        div.innerHTML = `
+    myBooks.forEach((book,index) => {
+        const bookDiv = document.createElement('div');
+        bookDiv.classList.add('book');
+        bookDiv.innerHTML = `
             <h2>${book.title}</h2>
             <div id="p-wrapper">
             <p>${book.author}</p>
             <p>${book.pages} pages</p>
             <p>${book.reading}</p>
             </div>
-            <button id="delete-button"> Delete book </button>
         `;
-        bookShelves.appendChild(div);
-    
+        bookShelves.appendChild(bookDiv);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent= 'Remove';
+        deleteButton.setAttribute('data-index', index)
+
+        deleteButton.addEventListener('click', (e)=> {
+            const bookIndex = e.target.getAttribute('data-index');
+            myBooks.splice(bookIndex,1);
+            renderBook();
+        })
+
+        bookDiv.appendChild(deleteButton)
     });
 }
-book();
+renderBook();
 
 
 //etape 1: add a book
@@ -88,13 +98,10 @@ AddformElement.addEventListener('submit', (e) => {
     AddformElement.style.display="none"
     addBookButtonElement.textContent= "Add a book"
     
-    book();
+    renderBook();
 });
 
 
-//etape 2: comment changer le status de lecture d un livre via une fonction
-
-//etape 3: comment afficher les livres dans la console via une fonction
 
 
 

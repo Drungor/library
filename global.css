@@ -64,13 +64,13 @@ header{
     color: rgb(56, 56, 56);
 }
 
-#delete-button {
+.delete-button {
     background-color: rgb(238, 92, 92);
     padding: 1rem, 0.5rem;
     margin-top: auto;
 }
 
-#delete-button:hover {
+.delete-button:hover:hover {
     background-color: darkred;
 }
 
